@@ -52,6 +52,8 @@ export class ToolManager {
         let tool;
         if (name === 'get_weather_on_date') {
             tool = this.tools.get('weather');
+        } else if (name === 'pickUp' || name === 'putDown') {
+            tool = this.tools.get('roArm');
         } else {
             tool = this.tools.get(name);
         }
@@ -64,7 +66,7 @@ export class ToolManager {
         }
 
         try {
-            const result = await tool.execute(args);
+            const result = await tool.execute({ name, ...args });
             return {
                 functionResponses: [{
                     response: { output: result },
