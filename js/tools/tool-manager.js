@@ -2,6 +2,7 @@ import { Logger } from '../utils/logger.js';
 import { ApplicationError, ErrorCodes } from '../utils/error-boundary.js';
 import { GoogleSearchTool } from './google-search.js';
 import { WeatherTool } from './weather-tool.js';
+import { RoArmTool } from './ro-arm.js';
 
 export class ToolManager {
     constructor() {
@@ -12,6 +13,7 @@ export class ToolManager {
     registerDefaultTools() {
         this.registerTool('googleSearch', new GoogleSearchTool());
         this.registerTool('weather', new WeatherTool());
+        this.registerTool('roArm', new RoArmTool());
     }
 
     registerTool(name, toolInstance) {
@@ -30,7 +32,7 @@ export class ToolManager {
         
         this.tools.forEach((tool, name) => {
             if (tool.getDeclaration) {
-                if (name === 'weather') {
+                if (name === 'roArm' || name === 'weather') {
                     allDeclarations.push({
                         functionDeclarations: tool.getDeclaration()
                     });
