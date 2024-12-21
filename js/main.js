@@ -176,7 +176,7 @@ async function connectToWebsocket() {
         systemInstruction: {
             parts: [
                 {
-                    text: 'You are my helpful assistant. You can see and hear me, and respond with voice and text. If you are asked about things you do not know, you can use the google search tool to find the answer.',
+                    text: 'You are my helpful assistant. Please speak shortly and to the point. You can see and hear me, and respond with voice and text. If you are asked about things you do not know, you can use the google search tool to find the answer.',
                 },
             ],
         }
