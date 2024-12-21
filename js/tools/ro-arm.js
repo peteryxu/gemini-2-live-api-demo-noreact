@@ -186,6 +186,7 @@ export class RoArmTool {
             throw new Error(`Invalid object type: ${objectType}`);
         }   
 
+        await this.sendRoArmCommand(this.ARM_DEFAULT_POSITION);
         return `Put down object in ${objectType}`;
     }
 } 
